@@ -1,0 +1,44 @@
+{
+  "Netflix": [
+    { "name": "Ultra HD — 1 mes (2 dispositivos)", "price": 8000 },
+    { "name": "Ultra HD — 2 meses (2 dispositivos)", "price": 15000 },
+    { "name": "Ultra HD — 1 dispositivo (consultar)", "price": 0 }
+  ],
+  "Disney+": [
+    { "name": "Premium con ESPN — 30 días (2 disp.)", "price": 7000 },
+    { "name": "Premium con ESPN — 60 días (2 disp.)", "price": 13000 },
+    { "name": "Premium con ESPN — 90 días (2 disp.)", "price": 17000 },
+    { "name": "Sin ESPN — 30 días (2 disp.)", "price": 6000 },
+    { "name": "Sin ESPN — 60 días (2 disp.)", "price": 11000 },
+    { "name": "Sin ESPN — 90 días (2 disp.)", "price": 15000 }
+  ],
+  "MAX": [
+    { "name": "Con TNT Sports — 30 días (MAX 2 disp.)", "price": 9000 },
+    { "name": "Con TNT Sports — 60 días (MAX 2 disp.)", "price": 17000 },
+    { "name": "Con TNT Sports — 90 días (MAX 2 disp.)", "price": 22000 },
+    { "name": "Sin TNT Sports — 30 días (2 disp.)", "price": 4000 },
+    { "name": "Sin TNT Sports — 60 días (2 disp.)", "price": 7500 },
+    { "name": "Sin TNT Sports — 90 días (2 disp.)", "price": 10000 }
+  ],
+  "TNT Sports": [
+    { "name": "Solo TNT Sports — 1 mes", "price": 6000 },
+    { "name": "Solo TNT Sports — 2 meses", "price": 11000 }
+  ],
+  "Prime Video": [
+    { "name": "1 mes (2 dispositivos)", "price": 4500 },
+    { "name": "2 meses (2 dispositivos)", "price": 8000 },
+    { "name": "3 meses (2 dispositivos)", "price": 11000 }
+  ],
+  "Paramount+": [
+    { "name": "1 mes", "price": 5500 },
+    { "name": "2 meses", "price": 10000 }
+  ],
+  "YouTube Premium": [
+    { "name": "1 mes (cuenta completa)", "price": 4500 },
+    { "name": "2 meses (cuenta completa)", "price": 8000 }
+  ],
+  "Crunchyroll": [
+    { "name": "1 mes", "price": 4500 },
+    { "name": "2 meses", "price": 8000 }
+  ]
+}

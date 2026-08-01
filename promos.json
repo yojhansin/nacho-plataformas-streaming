@@ -1,0 +1,76 @@
+{
+  "Netflix + Disney con ESPN": {
+    "description": "Lo mejor del cine, series y deporte en un solo pack.",
+    "price": 14000,
+    "featured": true,
+    "featuredLabel": "★ La más llevada",
+    "plans": [
+      [
+        "Netflix Ultra HD",
+        "Disney+ Premium con ESPN"
+      ]
+    ]
+  },
+  "MAX con TNT Sports": {
+    "description": "MAX (máx 2 dispositivos) + TNT Sports (1 dispositivo). Todo el fútbol y el catálogo de HBO/Warner.",
+    "price": 9000,
+    "options": [
+      {
+        "label": "30 Días",
+        "price": 9000
+      },
+      {
+        "label": "60 Días",
+        "price": 17000
+      },
+      {
+        "label": "90 Días",
+        "price": 22000
+      }
+    ],
+    "plans": [
+      [
+        "MAX 2 dispositivos",
+        "TNT Sports 1 dispositivo"
+      ]
+    ]
+  },
+  "Netflix + Prime Video": {
+    "description": "Dos gigantes del streaming por el precio de uno.",
+    "price": 11000,
+    "plans": [
+      [
+        "Netflix Ultra HD",
+        "Prime Video"
+      ]
+    ]
+  },
+  "Netflix + MAX": {
+    "description": "HBO, Warner y Netflix juntos. El combo definitivo.",
+    "price": 11000,
+    "plans": [
+      [
+        "Netflix Ultra HD",
+        "MAX"
+      ]
+    ]
+  },
+  "Prime Video 3 meses": {
+    "description": "Amazon Prime Video por tres meses a precio especial.",
+    "price": 10000,
+    "plans": [
+      [
+        "Prime Video — 3 meses"
+      ]
+    ]
+  },
+  "MAX 3 meses": {
+    "description": "Todo el catálogo de HBO y Warner durante 3 meses.",
+    "price": 9000,
+    "plans": [
+      [
+        "MAX — 3 meses"
+      ]
+    ]
+  }
+}
