@@ -9,31 +9,8 @@
         "Netflix Ultra HD",
         "Disney+ Premium con ESPN"
       ]
-    ]
-  },
-  "MAX con TNT Sports": {
-    "description": "MAX (máx 2 dispositivos) + TNT Sports (1 dispositivo). Todo el fútbol y el catálogo de HBO/Warner.",
-    "price": 9000,
-    "options": [
-      {
-        "label": "30 Días",
-        "price": 9000
-      },
-      {
-        "label": "60 Días",
-        "price": 17000
-      },
-      {
-        "label": "90 Días",
-        "price": 22000
-      }
     ],
-    "plans": [
-      [
-        "MAX 2 dispositivos",
-        "TNT Sports 1 dispositivo"
-      ]
-    ]
+    "devices": "2 pantallas"
   },
   "Netflix + Prime Video": {
     "description": "Dos gigantes del streaming por el precio de uno.",
@@ -43,7 +20,8 @@
         "Netflix Ultra HD",
         "Prime Video"
       ]
-    ]
+    ],
+    "devices": "2 pantallas"
   },
   "Netflix + MAX": {
     "description": "HBO, Warner y Netflix juntos. El combo definitivo.",
@@ -53,7 +31,8 @@
         "Netflix Ultra HD",
         "MAX"
       ]
-    ]
+    ],
+    "devices": "2 pantallas"
   },
   "Prime Video 3 meses": {
     "description": "Amazon Prime Video por tres meses a precio especial.",
@@ -62,7 +41,8 @@
       [
         "Prime Video — 3 meses"
       ]
-    ]
+    ],
+    "devices": "2 pantallas"
   },
   "MAX 3 meses": {
     "description": "Todo el catálogo de HBO y Warner durante 3 meses.",
@@ -71,6 +51,7 @@
       [
         "MAX — 3 meses"
       ]
-    ]
+    ],
+    "devices": "2 pantallas"
   }
 }
