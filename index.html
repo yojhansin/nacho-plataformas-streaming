@@ -180,6 +180,7 @@
     .promo-items-list { display: flex; flex-direction: column; gap: 5px; }
     .promo-item-row { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--t-mid); }
     .promo-item-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .promo-devices span:last-child { color: var(--accent); font-weight: 600; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.02em; }
     .promo-action-btn { margin-top: auto; width: 100%; display: flex; align-items: center; justify-content: space-between; background: var(--bg-3); border: 1px solid var(--border-mid); border-radius: var(--r-md); padding: 12px 16px; font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 600; color: var(--t-hi); cursor: pointer; transition: background 0.2s, border-color 0.2s; }
     .promo-action-btn:hover { background: rgba(var(--accent-rgb),0.07); border-color: rgba(var(--accent-rgb),0.25); color: var(--accent); }
 
@@ -197,6 +198,15 @@
     .promo-opt-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; color: var(--t-hi); }
     .promo-opt-price { font-size: 0.72rem; color: var(--t-mid); }
     .promo-opt.active .promo-opt-price { color: var(--accent); }
+
+    /* ── FLOATING CART BUTTON ── */
+    .cart-float { position: fixed; right: 20px; bottom: 88px; z-index: 90; display: flex; align-items: center; gap: 0; background: var(--bg-3); color: var(--t-hi); border: 1px solid var(--border-hi); border-radius: 100px; padding: 14px; box-shadow: 0 8px 28px rgba(0,0,0,0.45); transition: padding 0.3s var(--ease-spring), transform 0.25s var(--ease-spring), box-shadow 0.3s, background 0.25s, opacity 0.25s; overflow: hidden; transform: scale(0); opacity: 0; pointer-events: none; }
+    .cart-float.visible { transform: scale(1); opacity: 1; pointer-events: auto; }
+    .cart-float:hover { transform: translateY(-3px); background: rgba(var(--accent-rgb),0.12); border-color: rgba(var(--accent-rgb),0.4); box-shadow: 0 12px 36px rgba(0,0,0,0.5), 0 0 18px var(--accent-glow); color: var(--accent); padding: 14px 20px 14px 16px; }
+    .cart-float svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .cart-float-text { max-width: 0; opacity: 0; white-space: nowrap; font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; font-weight: 600; transition: max-width 0.3s var(--ease-spring), opacity 0.25s, margin-left 0.3s; }
+    .cart-float:hover .cart-float-text { max-width: 160px; opacity: 1; margin-left: 10px; }
+    .cart-float-badge { position: absolute; top: 4px; right: 4px; min-width: 20px; height: 20px; padding: 0 5px; display: flex; align-items: center; justify-content: center; background: var(--accent); color: #000; font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 700; border-radius: 100px; box-shadow: 0 0 0 2px var(--bg-0); }
 
     /* ── FLOATING WHATSAPP BUTTON ── */
     .wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 90; display: flex; align-items: center; gap: 0; background: var(--wa); color: #fff; border-radius: 100px; padding: 14px; box-shadow: 0 8px 28px rgba(37,211,102,0.4); transition: padding 0.3s var(--ease-spring), transform 0.2s, box-shadow 0.3s; overflow: hidden; }
@@ -421,11 +431,6 @@
       <button class="nav-link" onclick="lenis.scrollTo('#sec-promos',{duration:1.2})">Promociones</button>
       <button class="nav-link" onclick="lenis.scrollTo('#sec-contacto',{duration:1.2})">Contacto</button>
     </div>
-    <button class="nav-cart-btn" id="navCartBtn" onclick="openCartSheet()">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      <span id="navCartLabel">Mi pedido</span>
-      <span class="cart-count-badge hidden" id="cartBadge">0</span>
-    </button>
   </nav>
 
   <!-- HERO -->
@@ -543,6 +548,13 @@
     <div class="contact-grid" id="contactGrid"></div>
   </section>
 
+  <!-- FLOATING CART -->
+  <button class="cart-float" id="cartFloat" onclick="openCartSheet()" aria-label="Ver mi pedido">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    <span class="cart-float-text" id="cartFloatText">Mi pedido</span>
+    <span class="cart-float-badge" id="cartBadge">0</span>
+  </button>
+
   <!-- FLOATING WHATSAPP -->
   <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chatea por WhatsApp">
     <span class="wa-float-pulse"></span>
@@ -628,6 +640,7 @@
     { key: 'Netflix',         name: 'Netflix',         img: 'assets/img/plataformas/netflix.png' },
     { key: 'Disney+',         name: 'Disney+',         img: 'assets/img/plataformas/disney.png' },
     { key: 'MAX',             name: 'MAX',             img: 'assets/img/plataformas/maxctmre.svg' },
+    { key: 'MAX con TNT Sport', name: 'MAX con TNT Sport', img: 'assets/img/plataformas/max-tnt-sport.png' },
     { key: 'TNT Sports',      name: 'TNT Sports',      img: 'assets/img/plataformas/tnt-sports.svg' },
     { key: 'Prime Video',     name: 'Prime Video',     img: 'assets/img/plataformas/primevideo.png' },
     { key: 'YouTube Premium', name: 'YouTube Premium', img: 'assets/img/plataformas/youtube.png' },
@@ -739,7 +752,7 @@
         <div class="promo-badge-pill">${promo.featured ? (promo.featuredLabel || '★ Destacada') : 'Promo'}</div>
         <div><div class="promo-title">${name}</div><div class="promo-desc-text">${promo.description||''}</div></div>
         ${priceBlock}
-        <div class="promo-items-list">${(promo.plans||[]).map(set=>`<div class="promo-item-row"><span class="promo-item-dot"></span><span>${set.join(' + ')}</span></div>`).join('')}</div>
+        <div class="promo-items-list">${(promo.plans||[]).map(set=>`<div class="promo-item-row"><span class="promo-item-dot"></span><span>${set.join(' + ')}</span></div>`).join('')}${promo.devices?`<div class="promo-item-row promo-devices"><span class="promo-item-dot"></span><span>${promo.devices}</span></div>`:''}</div>
         ${optionsBlock}
         ${buttonBlock}
       `;
@@ -840,14 +853,11 @@
   function updateCartUI() {
     const count = cart.length;
     const badge = document.getElementById('cartBadge');
-    const btn = document.getElementById('navCartBtn');
-    badge.textContent = count;
-    if (count > 0) {
-      badge.classList.remove('hidden');
-      btn.classList.add('has-items');
-    } else {
-      badge.classList.add('hidden');
-      btn.classList.remove('has-items');
+    const floatBtn = document.getElementById('cartFloat');
+    if (badge) badge.textContent = count;
+    if (floatBtn) {
+      if (count > 0) floatBtn.classList.add('visible');
+      else floatBtn.classList.remove('visible');
     }
   }
 
